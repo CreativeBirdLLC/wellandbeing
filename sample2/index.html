@@ -20,6 +20,7 @@
       --accent: #7a6548;
       --accent-soft: rgba(122, 101, 72, 0.35);
       --line: rgba(26, 25, 23, 0.12);
+      --bullet-fill: linear-gradient(145deg, #b89a72 0%, var(--accent) 55%, #5c4a32 100%);
     }
 
     * {
@@ -115,7 +116,7 @@
 
     .brand {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(1.95rem, 7vw + 0.45rem, 2.85rem);
+      font-size: clamp(1.45rem, 7vw + 0.45rem, 1.85rem);
       font-weight: 400;
       line-height: 1.12;
       letter-spacing: 0.14em;
@@ -267,7 +268,7 @@
     }
 
     h2 {
-      font-size: 0.875rem;
+      font-size: 1.3rem;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -277,7 +278,7 @@
 
     @media (min-width: 480px) {
       h2 {
-        font-size: 0.90625rem;
+        font-size: 1.32rem;
         letter-spacing: 0.22em;
       }
     }
@@ -289,7 +290,7 @@
       }
 
       h2 {
-        font-size: 0.9375rem;
+        font-size: 1.35rem;
         letter-spacing: 0.24em;
         margin-bottom: 1.35rem;
         text-align: center;
@@ -303,20 +304,24 @@
     }
 
     .how-list li {
-      padding: 0.35rem 0;
-      padding-left: 1.1rem;
+      padding: 0.4rem 0;
+      padding-left: 1.35rem;
       position: relative;
     }
 
     .how-list li::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 0.85em;
-      width: 4px;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.7;
+      left: 0.15rem;
+      top: 0.58em;
+      width: 7px;
+      height: 7px;
+      transform: rotate(45deg);
+      background: var(--bullet-fill);
+      box-shadow:
+        0 0 0 1px rgba(122, 101, 72, 0.35),
+        0 0 0 2px rgba(247, 244, 239, 0.9),
+        0 1px 2px rgba(26, 25, 23, 0.08);
     }
 
     @media (min-width: 768px) {
@@ -329,13 +334,17 @@
 
       .how-list li {
         text-align: center;
-        padding: 0.85rem 0.5rem 0;
-        padding-left: 0.5rem;
+        padding: 1rem 0.6rem 0.35rem;
+        padding-left: 0.6rem;
         border-top: 1px solid var(--accent-soft);
       }
 
       .how-list li::before {
-        display: none;
+        position: relative;
+        left: auto;
+        top: auto;
+        display: block;
+        margin: 0 auto 0.65rem;
       }
     }
 
@@ -421,17 +430,24 @@
     }
 
     .enhance-grid li {
-      padding: 0.15rem 0;
-      padding-left: 0.85rem;
+      padding: 0.2rem 0;
+      padding-left: 1.15rem;
       position: relative;
     }
 
     .enhance-grid li::before {
-      content: "·";
+      content: "";
       position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
+      left: 0.05rem;
+      top: 0.68em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--bullet-fill);
+      box-shadow:
+        0 0 0 1px rgba(122, 101, 72, 0.3),
+        0 0 0 3px rgba(122, 101, 72, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35);
     }
 
     .exp-list article {
@@ -526,13 +542,6 @@
       .price-table td:last-child {
         font-size: 1.4rem;
       }
-
-      .policies {
-        text-align: center;
-        max-width: 36rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
     }
 
     .price-table tr {
@@ -562,102 +571,30 @@
     }
 
     .policies {
-      margin-top: 1.25rem;
-      font-size: 0.875rem;
+      margin-top: 1.35rem;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-family: "Libre Baskerville", Georgia, serif;
+      font-size: clamp(1.15rem, 4vw, 1.35rem);
+      font-style: italic;
+      font-weight: 400;
       color: var(--muted);
-      line-height: 1.58;
+      line-height: 1.68;
     }
 
     @media (min-width: 768px) {
       .policies {
-        font-size: 0.90625rem;
+        font-size: clamp(1.28rem, 2.4vw, 1.42rem);
+        line-height: 1.72;
+        margin-top: 1.5rem;
       }
     }
 
-    .share-qr {
-      text-align: center;
-      padding-top: 1.5rem;
-    }
-
-    .share-qr-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .share-qr h2 {
-      margin-bottom: 0.75rem;
-    }
-
-    .share-qr img {
-      display: block;
-      margin: 0 auto;
-      width: min(200px, 65vw);
-      height: auto;
-      mix-blend-mode: multiply;
-      opacity: 0.92;
-    }
-
-    .share-qr .hint {
-      margin-top: 0.65rem;
-      font-size: 0.875rem;
-      color: var(--muted);
-      max-width: 18rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (min-width: 768px) {
-      .share-qr {
-        padding: 2rem 1.5rem 0;
-        margin-top: 0.5rem;
-        border: 1px solid var(--line);
-        border-radius: 2px;
-        background: rgba(122, 101, 72, 0.05);
-      }
-
-      .share-qr .hint {
-        max-width: 22rem;
-        font-size: 0.9375rem;
-      }
-
-      .share-qr img {
-        width: min(240px, 40vw);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .share-qr-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        text-align: left;
-        flex-wrap: wrap;
-      }
-
-      .share-qr-inner .share-copy {
-        flex: 1;
-        min-width: 12rem;
-        max-width: 20rem;
-      }
-
-      .share-qr-inner img {
-        margin: 0;
-        flex-shrink: 0;
-      }
-
-      .share-qr h2 {
-        text-align: center;
-        width: 100%;
-        margin-bottom: 1rem;
-      }
-
-      .share-qr .hint {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0.5rem;
+    @media (min-width: 1100px) {
+      .policies {
+        font-size: 1.48rem;
       }
     }
 
@@ -817,42 +754,8 @@
         </p>
       </section>
 
-      <section class="share-qr" aria-labelledby="qr-heading">
-        <h2 id="qr-heading">Scan this menu</h2>
-        <div class="share-qr-inner">
-          <img
-            id="menu-qr-live"
-            src=""
-            alt="QR code linking to this menu page"
-            width="200"
-            height="200"
-          />
-          <div class="share-copy">
-            <p class="hint">
-              Once this page is hosted online, this code opens this menu on your
-              phone.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <footer>Well &amp; Being · Home Studio</footer>
     </div>
   </div>
-  <script>
-    (function () {
-      var img = document.getElementById("menu-qr-live");
-      if (!img) return;
-      var data = encodeURIComponent(window.location.href.split("#")[0]);
-      var px = window.matchMedia("(min-width: 768px)").matches ? 520 : 400;
-      img.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=" +
-        px +
-        "x" +
-        px +
-        "&ecc=H&margin=0&bgcolor=f7f4ef&color=1a1917&data=" +
-        data;
-    })();
-  </script>
 </body>
 </html>
