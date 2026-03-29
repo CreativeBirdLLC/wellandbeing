@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -28,13 +28,18 @@
       padding: 0;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       font-family: "Source Sans 3", system-ui, sans-serif;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       color: var(--ink);
       background: var(--outer);
-      line-height: 1.6;
+      line-height: 1.62;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -46,6 +51,28 @@
       box-shadow: 0 0 0 1px var(--line);
     }
 
+    @media (min-width: 768px) {
+      body {
+        padding: 2rem clamp(1rem, 4vw, 3rem) 3.5rem;
+        font-size: 1.09375rem;
+      }
+
+      .sheet {
+        max-width: 44rem;
+        min-height: calc(100vh - 4rem);
+        border-radius: 3px;
+        box-shadow:
+          0 0 0 1px var(--line),
+          0 28px 90px rgba(26, 25, 23, 0.1);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .sheet {
+        max-width: 58rem;
+      }
+    }
+
     .inner {
       padding: 2.5rem 1.5rem 3rem;
     }
@@ -53,6 +80,18 @@
     @media (min-width: 480px) {
       .inner {
         padding: 3rem 2.5rem 3.75rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .inner {
+        padding: 3.25rem clamp(2rem, 5vw, 3.75rem) 4rem;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .inner {
+        padding: 3.75rem 4rem 4.5rem;
       }
     }
 
@@ -76,42 +115,80 @@
 
     .brand {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(1.75rem, 5vw, 2.125rem);
+      font-size: clamp(2.35rem, 9.5vw + 0.35rem, 3.35rem);
       font-weight: 400;
-      letter-spacing: 0.2em;
+      line-height: 1.12;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink);
     }
 
+    @media (min-width: 480px) {
+      .brand {
+        letter-spacing: 0.17em;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .brand {
+        font-size: clamp(2.6rem, 5vw + 1.25rem, 3.25rem);
+        letter-spacing: 0.2em;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .brand {
+        font-size: clamp(2.85rem, 3.2vw, 3.6rem);
+        letter-spacing: 0.21em;
+      }
+
+      .name {
+        font-size: 1.55rem;
+      }
+    }
+
     .tagline {
-      margin-top: 0.5rem;
-      font-size: 0.7rem;
+      margin-top: 0.55rem;
+      font-size: clamp(0.75rem, 2.5vw, 0.8125rem);
       font-weight: 600;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--accent);
     }
 
+    @media (min-width: 480px) {
+      .tagline {
+        letter-spacing: 0.3em;
+      }
+    }
+
     .name {
-      margin-top: 1.75rem;
+      margin-top: 1.65rem;
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1.25rem;
+      font-size: clamp(1.4rem, 4.2vw, 1.55rem);
       font-weight: 700;
+      line-height: 1.25;
       color: var(--ink);
     }
 
     .credentials {
-      margin-top: 0.35rem;
-      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      font-size: 1rem;
       font-weight: 400;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+
+    @media (min-width: 768px) {
+      .credentials {
+        font-size: 1.035rem;
+      }
     }
 
     .est {
       display: block;
-      margin-top: 0.2rem;
-      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -119,8 +196,14 @@
 
     .book {
       margin-top: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 1.0625rem;
       color: var(--ink);
+    }
+
+    @media (min-width: 768px) {
+      .book {
+        font-size: 1.09375rem;
+      }
     }
 
     .book a {
@@ -136,8 +219,8 @@
     }
 
     .locale {
-      margin-top: 0.35rem;
-      font-size: 0.875rem;
+      margin-top: 0.4rem;
+      font-size: 1rem;
       color: var(--muted);
     }
 
@@ -150,11 +233,31 @@
 
     blockquote p {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1.05rem;
+      font-size: clamp(1.15rem, 4vw, 1.35rem);
       font-style: italic;
       font-weight: 400;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.68;
+    }
+
+    @media (min-width: 768px) {
+      blockquote {
+        margin-top: 2.75rem;
+        max-width: 36rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      blockquote p {
+        font-size: clamp(1.28rem, 2.4vw, 1.42rem);
+        line-height: 1.72;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      blockquote p {
+        font-size: 1.48rem;
+      }
     }
 
     section {
@@ -163,22 +266,39 @@
       border-top: 1px solid var(--line);
     }
 
-    section:first-of-type {
-      margin-top: 2.25rem;
-    }
-
     h2 {
-      font-size: 0.68rem;
+      font-size: 0.78125rem;
       font-weight: 600;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    @media (min-width: 480px) {
+      h2 {
+        font-size: 0.8125rem;
+        letter-spacing: 0.24em;
+      }
+    }
+
+    @media (min-width: 768px) {
+      section {
+        margin-top: 2.75rem;
+        padding-top: 2.25rem;
+      }
+
+      h2 {
+        font-size: 0.84375rem;
+        letter-spacing: 0.26em;
+        margin-bottom: 1.35rem;
+        text-align: center;
+      }
     }
 
     .how-list {
       list-style: none;
-      font-size: 0.95rem;
+      font-size: 1.03125rem;
       color: var(--muted);
     }
 
@@ -199,6 +319,26 @@
       opacity: 0.7;
     }
 
+    @media (min-width: 768px) {
+      .how-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem 1.25rem;
+        max-width: none;
+      }
+
+      .how-list li {
+        text-align: center;
+        padding: 0.85rem 0.5rem 0;
+        padding-left: 0.5rem;
+        border-top: 1px solid var(--accent-soft);
+      }
+
+      .how-list li::before {
+        display: none;
+      }
+    }
+
     dl.therapy {
       display: grid;
       gap: 1rem 0;
@@ -209,7 +349,7 @@
       gap: 0.15rem 1rem;
     }
 
-    @media (min-width: 520px) {
+    @media (min-width: 520px) and (max-width: 899px) {
       .therapy-row {
         grid-template-columns: 8.5rem 1fr;
         align-items: baseline;
@@ -218,15 +358,42 @@
 
     .therapy-row dt {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: 700;
       color: var(--ink);
     }
 
     .therapy-row dd {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.58;
+    }
+
+    @media (min-width: 900px) {
+      dl.therapy {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .therapy-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1.35rem 1.2rem 1.45rem;
+        background: rgba(122, 101, 72, 0.07);
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        box-shadow: 0 10px 36px rgba(26, 25, 23, 0.06);
+      }
+
+      .therapy-row dt {
+        font-size: 1.08rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px solid var(--accent-soft);
+      }
+
+      .therapy-row dd {
+        font-size: 0.94rem;
+      }
     }
 
     .enhance-grid ul {
@@ -234,14 +401,22 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.2rem 2rem;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.78;
     }
 
     @media (min-width: 400px) {
       .enhance-grid ul {
         grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .enhance-grid ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25rem 1.5rem;
+        font-size: 0.92rem;
       }
     }
 
@@ -283,29 +458,81 @@
 
     .exp-head h3 {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1.05rem;
+      font-size: 1.15625rem;
       font-weight: 700;
       color: var(--ink);
     }
 
     .duration {
-      font-size: 0.65rem;
+      font-size: 0.71875rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
       color: var(--accent);
     }
 
     .exp-list p.detail {
-      font-size: 0.875rem;
+      font-size: 0.96875rem;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.58;
+    }
+
+    @media (min-width: 900px) {
+      .exp-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .exp-list article {
+        padding: 1.35rem 1.35rem 1.45rem;
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 8px 32px rgba(26, 25, 23, 0.05);
+      }
+
+      .exp-list article:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .exp-list p.detail {
+        font-size: 1.03125rem;
+      }
+
+      .exp-head h3 {
+        font-size: 1.21875rem;
+      }
     }
 
     .price-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.95rem;
+      font-size: 1.03125rem;
+    }
+
+    @media (min-width: 768px) {
+      .price-table {
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.09375rem;
+      }
+
+      .price-table td {
+        padding: 0.85rem 0;
+      }
+
+      .price-table td:last-child {
+        font-size: 1.4rem;
+      }
+
+      .policies {
+        text-align: center;
+        max-width: 36rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .price-table tr {
@@ -329,21 +556,34 @@
     .price-table td:last-child {
       text-align: right;
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.28125rem;
       font-weight: 700;
       color: var(--accent);
     }
 
     .policies {
       margin-top: 1.25rem;
-      font-size: 0.8rem;
+      font-size: 0.875rem;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.58;
+    }
+
+    @media (min-width: 768px) {
+      .policies {
+        font-size: 0.90625rem;
+      }
     }
 
     .share-qr {
       text-align: center;
       padding-top: 1.5rem;
+    }
+
+    .share-qr-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
     }
 
     .share-qr h2 {
@@ -361,11 +601,64 @@
 
     .share-qr .hint {
       margin-top: 0.65rem;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       color: var(--muted);
-      max-width: 17rem;
+      max-width: 18rem;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    @media (min-width: 768px) {
+      .share-qr {
+        padding: 2rem 1.5rem 0;
+        margin-top: 0.5rem;
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        background: rgba(122, 101, 72, 0.05);
+      }
+
+      .share-qr .hint {
+        max-width: 22rem;
+        font-size: 0.9375rem;
+      }
+
+      .share-qr img {
+        width: min(240px, 40vw);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .share-qr-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        text-align: left;
+        flex-wrap: wrap;
+      }
+
+      .share-qr-inner .share-copy {
+        flex: 1;
+        min-width: 12rem;
+        max-width: 20rem;
+      }
+
+      .share-qr-inner img {
+        margin: 0;
+        flex-shrink: 0;
+      }
+
+      .share-qr h2 {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .share-qr .hint {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0.5rem;
+      }
     }
 
     footer {
@@ -373,9 +666,9 @@
       padding-top: 1.5rem;
       border-top: 1px solid var(--line);
       text-align: center;
-      font-size: 0.65rem;
+      font-size: 0.71875rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -526,17 +819,21 @@
 
       <section class="share-qr" aria-labelledby="qr-heading">
         <h2 id="qr-heading">Scan this menu</h2>
-        <img
-          id="menu-qr-live"
-          src=""
-          alt="QR code linking to this menu page"
-          width="200"
-          height="200"
-        />
-        <p class="hint">
-          Once this page is hosted online, this code opens this menu on your
-          phone.
-        </p>
+        <div class="share-qr-inner">
+          <img
+            id="menu-qr-live"
+            src=""
+            alt="QR code linking to this menu page"
+            width="200"
+            height="200"
+          />
+          <div class="share-copy">
+            <p class="hint">
+              Once this page is hosted online, this code opens this menu on your
+              phone.
+            </p>
+          </div>
+        </div>
       </section>
 
       <footer>Well &amp; Being · Home Studio</footer>
@@ -547,8 +844,13 @@
       var img = document.getElementById("menu-qr-live");
       if (!img) return;
       var data = encodeURIComponent(window.location.href.split("#")[0]);
+      var px = window.matchMedia("(min-width: 768px)").matches ? 520 : 400;
       img.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=400x400&ecc=H&margin=0&bgcolor=f7f4ef&color=1a1917&data=" +
+        "https://api.qrserver.com/v1/create-qr-code/?size=" +
+        px +
+        "x" +
+        px +
+        "&ecc=H&margin=0&bgcolor=f7f4ef&color=1a1917&data=" +
         data;
     })();
   </script>
