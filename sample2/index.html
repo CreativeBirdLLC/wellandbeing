@@ -115,27 +115,17 @@
 
     .brand {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(
-        1.55rem,
-        calc((100vw - 3rem) / 7.75),
-        2.65rem
-      );
+      font-size: clamp(1.95rem, 7vw + 0.45rem, 2.85rem);
       font-weight: 400;
       line-height: 1.12;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink);
-      white-space: nowrap;
     }
 
     @media (min-width: 480px) {
       .brand {
-        letter-spacing: 0.12em;
-        font-size: clamp(
-          1.85rem,
-          calc((100vw - 3rem) / 7.25),
-          2.85rem
-        );
+        letter-spacing: 0.17em;
       }
     }
 
