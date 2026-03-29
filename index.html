@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Well & Being — Home Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400&family=Sacramento&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background-color: #f5efe6;
+  color: #3b2f23;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* linen texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(160,130,100,0.025) 2px, rgba(160,130,100,0.025) 3px),
+    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(160,130,100,0.015) 4px, rgba(160,130,100,0.015) 5px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE BASE (320px+)
+───────────────────────────────────────── */
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── BOTANICALS ── */
+.botanical-top    { text-align: center; margin-bottom: 6px;  opacity: 0.45; }
+.botanical-bottom { text-align: center; margin-top:   6px;  opacity: 0.45; }
+.botanical-top  svg { width: 200px; height: auto; }
+.botanical-bottom svg { width: 140px; height: auto; }
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #c9b49a;
+}
+.studio-tag {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8a6e56;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+.brand {
+  font-family: 'Sacramento', cursive;
+  font-size: 62px;
+  color: #3b2f23;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.tagline-header {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #8a6e56;
+  margin-bottom: 16px;
+}
+.divider-leaf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+.divider-leaf .line   { flex: 1; max-width: 70px; height: 1px; background: linear-gradient(to right, transparent, #c9b49a); }
+.divider-leaf .line.r { background: linear-gradient(to left,  transparent, #c9b49a); }
+.therapist-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #3b2f23;
+  margin-bottom: 3px;
+}
+.therapist-title {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #8a6e56;
+  line-height: 1.7;
+}
+
+/* ── INVITE ── */
+.invite {
+  text-align: center;
+  padding: 24px 12px;
+  border-bottom: 1px solid #c9b49a;
+}
+.invite p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #5c4433;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 24px 0;
+  border-bottom: 1px solid #c9b49a;
+  text-align: center;
+}
+.section-eyebrow {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #8a6e56;
+  margin-bottom: 18px;
+}
+/* mobile: stacked */
+.steps { display: flex; flex-direction: column; gap: 0; text-align: left; }
+.step  { display: flex; align-items: center; gap: 16px; padding: 12px 0; }
+.step + .step { border-top: 1px solid #ecdfd0; }
+.step-num {
+  font-family: 'Sacramento', cursive;
+  font-size: 40px;
+  color: #b08c6e;
+  line-height: 1;
+  width: 36px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.step p { font-size: 13px; color: #5c4433; line-height: 1.5; }
+
+/* ── GENERIC SECTION ── */
+.section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3b2f23;
+  margin-bottom: 18px;
+}
+
+/* ── THERAPIES — mobile: stacked ── */
+.therapies { display: flex; flex-direction: column; gap: 0; }
+.therapy { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; }
+.therapy + .therapy { border-top: 1px solid #ecdfd0; }
+.therapy-dot { width: 6px; height: 6px; border-radius: 50%; background: #b08c6e; flex-shrink: 0; margin-top: 7px; }
+.therapy-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: #3b2f23; margin-bottom: 2px; }
+.therapy-desc { font-size: 13px; color: #7a6050; font-style: italic; }
+
+/* ── ENHANCEMENTS ── */
+.enhancements-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-size: 12px;
+  color: #5c4433;
+  background: rgba(176,140,110,0.1);
+  border: 1px solid rgba(176,140,110,0.35);
+  border-radius: 100px;
+  padding: 6px 14px;
+  line-height: 1;
+}
+
+/* ── EXPERIENCES — mobile: stacked ── */
+.experiences { display: flex; flex-direction: column; gap: 12px; }
+.exp {
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #d9c9b5;
+  border-radius: 6px;
+  border-left: 3px solid #b08c6e;
+}
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.exp-name     { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: #3b2f23; }
+.exp-duration { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8a6e56; }
+.exp-details  { font-size: 12.5px; color: #7a6050; line-height: 1.75; }
+
+/* ── PRICING — mobile: row (works on small screens fine) ── */
+.pricing-section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
+.pricing-tiers { display: flex; gap: 10px; margin-bottom: 16px; }
+.tier {
+  flex: 1;
+  text-align: center;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid #d9c9b5;
+  border-radius: 6px;
+  padding: 16px 8px;
+}
+.tier-min   { display: block; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 8px; }
+.tier-price { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: #3b2f23; }
+.tier-price sup { font-size: 13px; vertical-align: super; color: #8a6e56; }
+.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: #8a6e56; line-height: 2; }
+
+/* ── BOOKING ── */
+.booking { text-align: center; padding: 24px 0; border-bottom: 1px solid #c9b49a; }
+.booking-cta { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 10px; }
+.booking-phone {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #3b2f23;
+  margin-bottom: 6px;
+  display: block;
+  text-decoration: none;
+  padding: 4px 0;
+}
+.booking-phone:active { opacity: 0.7; }
+.booking-location { font-size: 11px; letter-spacing: 2px; color: #8a6e56; text-transform: uppercase; }
+
+/* ── QR ── */
+.qr-section { text-align: center; padding: 28px 0 0; }
+.qr-label { display: block; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 14px; }
+#qrcode { display: inline-block; padding: 12px; background: #fff; border: 1px solid #d9c9b5; border-radius: 6px; }
+#qrcode canvas, #qrcode img { display: block; }
+.qr-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: #a08070; margin-top: 10px; }
+
+/* ── ANIMATIONS ── */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.header  { animation: rise 0.8s 0.05s ease both; }
+.invite  { animation: rise 0.8s 0.12s ease both; }
+.how     { animation: rise 0.8s 0.18s ease both; }
+.section, .pricing-section, .booking, .qr-section { animation: rise 0.8s 0.22s ease both; }
+
+/* ─────────────────────────────────────────
+   TABLET (560px+) — start opening up
+───────────────────────────────────────── */
+@media (min-width: 560px) {
+  .page { padding: 40px 36px 72px; }
+  .brand { font-size: 72px; }
+  .botanical-top svg  { width: 240px; }
+  .botanical-bottom svg { width: 170px; }
+
+  /* How it works: side by side */
+  .steps { flex-direction: row; text-align: center; }
+  .step  { flex-direction: column; align-items: center; padding: 0 20px; }
+  .step + .step { border-top: none; border-left: 1px solid #d9c9b5; }
+  .step-num { width: auto; }
+
+  /* Therapies: row layout */
+  .therapies { flex-direction: row; gap: 0; }
+  .therapy { flex-direction: column; flex: 1; padding: 0 16px 0 0; gap: 6px; }
+  .therapy + .therapy { border-top: none; border-left: 1px solid #ecdfd0; padding: 0 0 0 16px; }
+  .therapy-dot { margin-top: 0; margin-bottom: 4px; }
+
+  /* Experiences: 2-col grid */
+  .experiences { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .tier-price { font-size: 30px; }
+}
+
+/* ─────────────────────────────────────────
+   DESKTOP (700px+) — full luxury layout
+───────────────────────────────────────── */
+@media (min-width: 700px) {
+  .page { padding: 52px 60px 88px; }
+  .brand { font-size: 80px; }
+  .studio-tag { font-size: 10px; letter-spacing: 5px; }
+  .therapist-name { font-size: 19px; }
+  .therapist-title { font-size: 11px; letter-spacing: 3px; }
+  .tagline-header { font-size: 14px; }
+  .invite p { font-size: 18px; }
+  .section-title { font-size: 22px; }
+  .botanical-top svg  { width: 280px; }
+  .botanical-bottom svg { width: 190px; }
+  .divider-leaf .line { max-width: 90px; }
+  .tier-price { font-size: 32px; }
+  .tier-min   { font-size: 10px; }
+  .booking-phone { font-size: 32px; }
+  .exp-name { font-size: 17px; }
+  .therapy-name { font-size: 17px; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Botanical top -->
+  <div class="botanical-top">
+    <svg viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 50 Q42 30 82 34" stroke="#8a6e56" stroke-width="1" fill="none"/>
+      <path d="M24 44 Q30 28 40 25" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="42" cy="23" rx="7" ry="3.5" transform="rotate(-28 42 23)" fill="#8a6e56" opacity="0.4"/>
+      <path d="M52 39 Q57 24 65 21" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="67" cy="19" rx="6.5" ry="3.5" transform="rotate(-18 67 19)" fill="#8a6e56" opacity="0.4"/>
+      <path d="M70 37 Q76 25 83 27" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="84" cy="25" rx="6" ry="3" transform="rotate(8 84 25)" fill="#8a6e56" opacity="0.35"/>
+      <!-- centre sprig -->
+      <line x1="140" y1="56" x2="140" y2="16" stroke="#8a6e56" stroke-width="0.8"/>
+      <ellipse cx="140" cy="11" rx="5" ry="8" fill="#8a6e56" opacity="0.28"/>
+      <ellipse cx="132" cy="26" rx="5" ry="3" transform="rotate(-38 132 26)" fill="#8a6e56" opacity="0.22"/>
+      <ellipse cx="148" cy="26" rx="5" ry="3" transform="rotate(38 148 26)" fill="#8a6e56" opacity="0.22"/>
+      <!-- right branch -->
+      <path d="M276 50 Q238 30 198 34" stroke="#8a6e56" stroke-width="1" fill="none"/>
+      <path d="M256 44 Q250 28 240 25" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="238" cy="23" rx="7" ry="3.5" transform="rotate(28 238 23)" fill="#8a6e56" opacity="0.4"/>
+      <path d="M228 39 Q223 24 215 21" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="213" cy="19" rx="6.5" ry="3.5" transform="rotate(18 213 19)" fill="#8a6e56" opacity="0.4"/>
+      <path d="M210 37 Q204 25 197 27" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="196" cy="25" rx="6" ry="3" transform="rotate(-8 196 25)" fill="#8a6e56" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="studio-tag">Home Studio · Loxahatchee, FL · Est. 2004</div>
+    <div class="brand">Well &amp; Being</div>
+    <div class="tagline-header">A sanctuary crafted for your restoration</div>
+    <div class="divider-leaf">
+      <div class="line"></div>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <ellipse cx="8" cy="8" rx="3.5" ry="7" transform="rotate(-45 8 8)" fill="#8a6e56" opacity="0.55"/>
+        <line x1="8" y1="12" x2="8" y2="16" stroke="#8a6e56" stroke-width="0.8" opacity="0.55"/>
+      </svg>
+      <div class="line r"></div>
+    </div>
+    <div class="therapist-name">Sonja Gonelli</div>
+    <div class="therapist-title">Licensed Massage Therapist &amp; Esthetician</div>
+  </div>
+
+  <!-- Invite -->
+  <div class="invite">
+    <p>In this space, you are invited to<br>slow down, let go, and begin again.</p>
+  </div>
+
+  <!-- How it works -->
+  <div class="how">
+    <span class="section-eyebrow">How It Works</span>
+    <div class="steps">
+      <div class="step"><span class="step-num">1</span><p>Choose your therapy</p></div>
+      <div class="step"><span class="step-num">2</span><p>Enhance your experience</p></div>
+      <div class="step"><span class="step-num">3</span><p>Every session is uniquely yours</p></div>
+    </div>
+  </div>
+
+  <!-- Therapies -->
+  <div class="section">
+    <div class="section-title">Choose Your Therapy</div>
+    <div class="therapies">
+      <div class="therapy">
+        <div class="therapy-dot"></div>
+        <div>
+          <div class="therapy-name">Swedish</div>
+          <div class="therapy-desc">Light, calming, restorative</div>
+        </div>
+      </div>
+      <div class="therapy">
+        <div class="therapy-dot"></div>
+        <div>
+          <div class="therapy-name">Deep Tissue</div>
+          <div class="therapy-desc">Firm, therapeutic, intentional</div>
+        </div>
+      </div>
+      <div class="therapy">
+        <div class="therapy-dot"></div>
+        <div>
+          <div class="therapy-name">Neuromuscular</div>
+          <div class="therapy-desc">Targeted relief, focused work</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhancements -->
+  <div class="section">
+    <div class="section-title">Add Your Enhancements</div>
+    <div class="enhancements-wrap">
+      <span class="pill">Warm Stone Therapy</span>
+      <span class="pill">Lymphatic Drainage</span>
+      <span class="pill">Aromatherapy</span>
+      <span class="pill">Foot Focus</span>
+      <span class="pill">Tibetan Bowls</span>
+      <span class="pill">Warm Oil Scalp</span>
+      <span class="pill">Back Polish</span>
+      <span class="pill">Cupping</span>
+      <span class="pill">Herbal Compress</span>
+      <span class="pill">Gua Sha</span>
+      <span class="pill">Tuning Forks</span>
+      <span class="pill">Face Focus</span>
+      <span class="pill">Cranial Sacral</span>
+      <span class="pill">Stretch Therapy</span>
+      <span class="pill">Dry Brushing</span>
+    </div>
+  </div>
+
+  <!-- Experiences -->
+  <div class="section">
+    <div class="section-title">Curated Experiences</div>
+    <div class="experiences">
+      <div class="exp">
+        <div class="exp-header"><div class="exp-name">Deep Healing</div><div class="exp-duration">2 hrs</div></div>
+        <div class="exp-details">Deep Tissue · Tibetan Bowls · Cupping · Aromatherapy</div>
+      </div>
+      <div class="exp">
+        <div class="exp-header"><div class="exp-name">Tree of Life</div><div class="exp-duration">2 hrs</div></div>
+        <div class="exp-details">Swedish · Cranial Sacral · Face Focus · Stretch Therapy</div>
+      </div>
+      <div class="exp">
+        <div class="exp-header"><div class="exp-name">Warm Escape</div><div class="exp-duration">2 hrs</div></div>
+        <div class="exp-details">Warm Stone · Foot Focus · Herbal Compress · Warm Oil Scalp</div>
+      </div>
+      <div class="exp">
+        <div class="exp-header"><div class="exp-name">Let It Flow</div><div class="exp-duration">2 hrs</div></div>
+        <div class="exp-details">Lymphatic Drainage · Gua Sha · Cupping · Face + Abdomen Focus · Fluid Movement + Contouring</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing-section">
+    <div class="section-title">Pricing</div>
+    <div class="pricing-tiers">
+      <div class="tier"><span class="tier-min">60 min</span><div class="tier-price"><sup>$</sup>100</div></div>
+      <div class="tier"><span class="tier-min">90 min</span><div class="tier-price"><sup>$</sup>150</div></div>
+      <div class="tier"><span class="tier-min">120 min</span><div class="tier-price"><sup>$</sup>190</div></div>
+    </div>
+    <div class="pricing-note">Flat rate · No gratuity necessary<br>Smiles accepted · Cash only</div>
+  </div>
+
+  <!-- Booking -->
+  <div class="booking">
+    <div class="booking-cta">Text to Book Your Session</div>
+    <a href="sms:9545345326" class="booking-phone">954-534-5326</a>
+    <div class="booking-location">Loxahatchee, Florida</div>
+  </div>
+
+  <!-- QR -->
+  <div class="qr-section">
+    <span class="qr-label">Scan to View This Menu</span>
+    <div id="qrcode"></div>
+    <div class="qr-sub">well &amp; being · home studio</div>
+  </div>
+
+  <!-- Botanical bottom -->
+  <div class="botanical-bottom">
+    <svg viewBox="0 0 190 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12 Q50 22 95 16 Q140 22 182 12" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
+      <ellipse cx="62"  cy="8"  rx="6"   ry="3"   transform="rotate(-18 62 8)"   fill="#8a6e56" opacity="0.28"/>
+      <ellipse cx="95"  cy="5"  rx="4.5" ry="7.5"                                fill="#8a6e56" opacity="0.22"/>
+      <ellipse cx="128" cy="8"  rx="6"   ry="3"   transform="rotate(18 128 8)"   fill="#8a6e56" opacity="0.28"/>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+  const menuUrl = window.location.href || "https://well-and-being-studio.com/menu";
+  new QRCode(document.getElementById("qrcode"), {
+    text: menuUrl,
+    width: 120,
+    height: 120,
+    colorDark:  "#3b2f23",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>
