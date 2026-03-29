@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2a2623" />
+  <title>Well &amp; Being · Option 2 · Sanctuary night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Figtree:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --paper: #fdfcfa;
+      --wash: #ebe8e1;
+      --rule: #c8c4bc;
+      --rule-light: #e0ddd6;
+      --ink: #141312;
+      --muted: #4a4844;
+      --accent: #1a1918;
+      --font-serif: "EB Garamond", "Georgia", serif;
+      --font-sans: "Figtree", system-ui, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background-color: var(--wash);
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 11px,
+        rgba(0, 0, 0, 0.02) 11px,
+        rgba(0, 0, 0, 0.02) 12px
+      );
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .menu-backdrop {
+      min-height: 100vh;
+      padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 2.5vw, 1.5rem)
+        clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .menu-paper {
+      max-width: 36rem;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8) inset,
+        0 18px 48px rgba(20, 19, 18, 0.07);
+    }
+
+    @media (min-width: 768px) {
+      .menu-paper {
+        max-width: 42rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-paper {
+        max-width: 48rem;
+      }
+    }
+
+    .menu-inner {
+      padding: clamp(1.65rem, 4.5vw, 2.35rem) clamp(1.15rem, 4vw, 2.75rem)
+        clamp(2rem, 4vw, 2.75rem);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 1.035rem;
+      }
+
+      .menu-inner {
+        padding: 2.35rem 2.75rem 2.75rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-inner {
+        padding: 2.65rem 3.25rem 3rem;
+      }
+    }
+
+    h1.visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .mast {
+      text-align: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px double var(--rule);
+    }
+
+    .mast-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .brand {
+      font-family: var(--font-sans);
+      font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      .brand {
+        font-size: clamp(1.65rem, 2.8vw, 2rem);
+        letter-spacing: 0.36em;
+      }
+    }
+
+    .tagline {
+      margin-top: 0.35rem;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    @media (min-width: 768px) {
+      .tagline {
+        font-size: 1.12rem;
+      }
+    }
+
+    .mast-rule {
+      width: 2.5rem;
+      height: 2px;
+      background: var(--accent);
+      margin: 1rem auto 0.85rem;
+    }
+
+    .name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .credentials {
+      margin-top: 0.3rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .est {
+      display: block;
+      margin-top: 0.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      margin-top: 1.15rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--rule-light);
+    }
+
+    .book {
+      font-size: 0.94rem;
+    }
+
+    .book a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .book a:hover,
+    .book a:focus-visible {
+      opacity: 0.75;
+    }
+
+    .locale {
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    blockquote {
+      margin: 1.5rem 0 0;
+      padding: 1.15rem 0 0;
+      border: none;
+      text-align: center;
+      border-top: 1px solid var(--rule-light);
+    }
+
+    blockquote p {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 2.8vw, 1.3rem);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--rule-light);
+    }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      text-align: left;
+      padding-left: 0.55rem;
+      border-left: 3px solid var(--ink);
+    }
+
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+      }
+    }
+
+    .how-list {
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .how-list li {
+      padding: 0.4rem 0;
+      padding-left: 0.9rem;
+      position: relative;
+      border-bottom: 1px dotted var(--rule-light);
+    }
+
+    .how-list li:last-child {
+      border-bottom: none;
+    }
+
+    .how-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 0.85em;
+    }
+
+    @media (min-width: 640px) {
+      .how-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid var(--rule-light);
+      }
+
+      .how-list li {
+        padding: 0.85rem 0.65rem;
+        text-align: center;
+        border-bottom: none;
+        border-right: 1px solid var(--rule-light);
+      }
+
+      .how-list li:last-child {
+        border-right: none;
+      }
+
+      .how-list li::before {
+        display: none;
+      }
+    }
+
+    dl.therapy {
+      border: 1px solid var(--rule-light);
+      border-bottom: none;
+    }
+
+    .therapy-row {
+      display: grid;
+      gap: 0.15rem 1rem;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    @media (min-width: 560px) and (max-width: 799px) {
+      .therapy-row {
+        grid-template-columns: 8rem 1fr;
+        align-items: baseline;
+      }
+    }
+
+    @media (min-width: 800px) {
+      dl.therapy {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: none;
+        gap: 0;
+        border-top: 1px solid var(--rule-light);
+        border-left: 1px solid var(--rule-light);
+      }
+
+      .therapy-row {
+        border-bottom: 1px solid var(--rule-light);
+        border-right: 1px solid var(--rule-light);
+        padding: 1rem 1rem 1.1rem;
+      }
+    }
+
+    .therapy-row dt {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .therapy-row dd {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .enhance-grid ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.15rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    @media (min-width: 420px) {
+      .enhance-grid ul {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .enhance-grid ul {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .enhance-grid li {
+      padding: 0.25rem 0 0.25rem 0.95rem;
+      position: relative;
+    }
+
+    .enhance-grid li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .exp-list {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--rule-light);
+    }
+
+    .exp-list article {
+      padding: 1rem 1.05rem 1.1rem;
+      border-bottom: 1px solid var(--rule-light);
+      background: transparent;
+    }
+
+    .exp-list article:last-child {
+      border-bottom: none;
+    }
+
+    @media (min-width: 768px) {
+      .exp-list {
+        grid-template-columns: 1fr 1fr;
+        border: none;
+        gap: 0.85rem;
+      }
+
+      .exp-list article {
+        border: 1px solid var(--rule-light);
+        border-bottom: 1px solid var(--rule-light);
+      }
+    }
+
+    .exp-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.35rem 0.65rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-head h3 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .duration {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .exp-list p.detail {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.52;
+    }
+
+    .price-wrap {
+      border: 2px solid var(--ink);
+      padding: 0.5rem 0;
+      margin-top: 0.35rem;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .price-table tr:nth-child(even) td {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .price-table td {
+      padding: 0.65rem 1rem;
+      vertical-align: baseline;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-table td:first-child {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-table td:last-child {
+      text-align: right;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    @media (min-width: 768px) {
+      .price-table td:last-child {
+        font-size: 1.5rem;
+      }
+    }
+
+    .policies {
+      margin-top: 1.1rem;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: clamp(0.98rem, 2.5vw, 1.18rem);
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      margin-top: 1.75rem;
+      padding-top: 1rem;
+      border-top: 3px double var(--rule);
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    body.opt2 {
+      background:
+        radial-gradient(ellipse 120% 70% at 50% -15%, rgba(196, 165, 116, 0.14), transparent 52%),
+        linear-gradient(165deg, #1e1c1a 0%, #2e2a26 48%, #3d3833 100%);
+      color: #e8dfd2;
+    }
+
+    .s-hero {
+      text-align: center;
+      padding: clamp(2rem, 7vw, 3.25rem) 1.25rem 1.5rem;
+    }
+
+    .s-hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #c4a574;
+      margin-bottom: 0.65rem;
+    }
+
+    .s-hero-brand {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.85rem, 11vw, 4.75rem);
+      line-height: 1;
+      color: #f5ebe0;
+      text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .s-hero-tag {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.02rem, 2.7vw, 1.32rem);
+      font-style: italic;
+      font-weight: 500;
+      color: rgba(232, 223, 210, 0.88);
+      max-width: 19rem;
+      margin: 0.5rem auto 0.85rem;
+      line-height: 1.45;
+    }
+
+    .s-hero-line {
+      width: min(4.5rem, 20vw);
+      height: 1px;
+      margin: 0 auto 0.85rem;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(196, 165, 116, 0.45),
+        transparent
+      );
+    }
+
+    .s-hero-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.15rem, 3vw, 1.48rem);
+      font-weight: 600;
+      color: #f0e8dd;
+    }
+
+    .s-hero-sub {
+      margin-top: 0.35rem;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232, 223, 210, 0.52);
+    }
+
+    body.opt2 .menu-backdrop {
+      padding-top: 0;
+    }
+
+    body.opt2 .menu-paper {
+      background: #f7f1e8;
+      border-radius: 26px 26px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 -14px 48px rgba(0, 0, 0, 0.25);
+      max-width: 40rem;
+    }
+
+    body.opt2 .menu-inner {
+      color: var(--ink);
+    }
+
+    .mast--cta {
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .mast--cta .cta-row {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  </style>
+</head>
+<body class="opt2">
+  <header class="s-hero">
+    <p class="s-hero-eyebrow">Home Studio · Loxahatchee · Est. 2004</p>
+    <p class="s-hero-brand">Well &amp; Being</p>
+    <p class="s-hero-tag">A sanctuary crafted for your restoration</p>
+    <div class="s-hero-line" aria-hidden="true"></div>
+    <p class="s-hero-name">Sonja Gonelli</p>
+    <p class="s-hero-sub">Licensed Massage Therapist &amp; Esthetician</p>
+  </header>
+  <div class="menu-backdrop">
+    <div class="menu-paper">
+      <div class="menu-inner">
+        <h1 class="visually-hidden">WELL &amp; BEING massage menu</h1>
+
+        <header class="mast mast--cta">
+          <div class="cta-row">
+            <p class="book">
+              To book an appointment, text
+              <a href="sms:9545345326">954-534-5326</a>
+            </p>
+            <p class="locale">Located in Loxahatchee</p>
+          </div>
+        </header>
+
+        <blockquote>
+          <p>
+            In this space, you are invited to slow down, let go, and begin again.
+          </p>
+        </blockquote>
+
+        <section aria-labelledby="how-heading">
+          <h2 id="how-heading">How it works</h2>
+          <ul class="how-list">
+            <li>Choose your therapy</li>
+            <li>Enhance your experience</li>
+            <li>Each session is thoughtfully customized to your needs</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="therapy-heading">
+          <h2 id="therapy-heading">Choose your therapy</h2>
+          <dl class="therapy">
+            <div class="therapy-row">
+              <dt>Swedish</dt>
+              <dd>Light, calming, restorative</dd>
+            </div>
+            <div class="therapy-row">
+              <dt>Deep Tissue</dt>
+              <dd>Firm, therapeutic, intentional</dd>
+            </div>
+            <div class="therapy-row">
+              <dt>Neuromuscular</dt>
+              <dd>Targeted relief, focused work</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section aria-labelledby="enhance-heading">
+          <h2 id="enhance-heading">Choose your enhancements</h2>
+          <div class="enhance-grid">
+            <ul>
+              <li>Warm Stone Therapy</li>
+              <li>Lymphatic Drainage</li>
+              <li>Aromatherapy</li>
+              <li>Foot Focus</li>
+              <li>Tibetan Bowls</li>
+              <li>Warm Oil Scalp</li>
+              <li>Back Polish</li>
+              <li>Cupping</li>
+              <li>Herbal Compress</li>
+              <li>Gua Sha</li>
+              <li>Tuning Forks</li>
+              <li>Face Focus</li>
+              <li>Cranial Sacral</li>
+              <li>Stretch Therapy</li>
+              <li>Dry Brushing</li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="exp-heading">
+          <h2 id="exp-heading">Experiences</h2>
+          <div class="exp-list">
+            <article>
+              <div class="exp-head">
+                <h3>Deep Healing</h3>
+                <span class="duration">2 hr</span>
+              </div>
+              <p class="detail">
+                Deep Tissue · Tibetan Bowls · Cupping · Aromatherapy
+              </p>
+            </article>
+            <article>
+              <div class="exp-head">
+                <h3>Tree of Life</h3>
+                <span class="duration">2 hr</span>
+              </div>
+              <p class="detail">
+                Swedish · Cranial Sacral · Face Focus · Stretch Therapy
+              </p>
+            </article>
+            <article>
+              <div class="exp-head">
+                <h3>Warm Escape</h3>
+                <span class="duration">2 hr</span>
+              </div>
+              <p class="detail">
+                Warm Stone Therapy · Foot Focus · Herbal Compress · Warm oil scalp
+                massage
+              </p>
+            </article>
+            <article>
+              <div class="exp-head">
+                <h3>Let it Flow</h3>
+                <span class="duration">2 hr</span>
+              </div>
+              <p class="detail">
+                Lymphatic drainage · Gua Sha · Cupping. Face and abdomen focus.
+                Fluid movement and contouring.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="price-heading">
+          <h2 id="price-heading">Pricing</h2>
+          <div class="price-wrap">
+            <table class="price-table">
+              <tbody>
+                <tr>
+                  <td>60 minutes</td>
+                  <td>$100</td>
+                </tr>
+                <tr>
+                  <td>90 minutes</td>
+                  <td>$150</td>
+                </tr>
+                <tr>
+                  <td>120 minutes</td>
+                  <td>$190</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="policies">
+            Flat rate · No gratuity necessary · Smiles accepted · Cash only
+          </p>
+        </section>
+
+        <footer>Well &amp; Being · Home Studio</footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
