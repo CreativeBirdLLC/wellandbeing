@@ -6,17 +6,32 @@
 <title>Well & Being — Home Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400&family=Sacramento&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500&family=Sacramento&display=swap" rel="stylesheet">
 <style>
+
+:root {
+  --bg-griege: #ebe4d8;
+  --bg-taupe: #bdb3a6;
+  --ink: #0c0b0a;
+  --ink-soft: #242220;
+  --gold: #8a6a12;
+  --gold-bright: #9a761f;
+  --rule: #c4b78e;
+  --rule-soft: #d6ccb0;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
-  background-color: #f5efe6;
-  color: #3b2f23;
+  background: linear-gradient(
+    168deg,
+    var(--bg-griege) 0%,
+    #ddd5c8 45%,
+    var(--bg-taupe) 100%
+  );
+  color: var(--ink);
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -27,8 +42,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(160,130,100,0.025) 2px, rgba(160,130,100,0.025) 3px),
-    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(160,130,100,0.015) 4px, rgba(160,130,100,0.015) 5px);
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(90, 70, 40, 0.02) 2px, rgba(90, 70, 40, 0.02) 3px),
+    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(90, 70, 40, 0.012) 4px, rgba(90, 70, 40, 0.012) 5px);
   pointer-events: none;
   z-index: 0;
 }
@@ -39,44 +54,46 @@ body::before {
 .page {
   max-width: 700px;
   margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding: clamp(1.25rem, 5vw, 2.5rem) clamp(1.1rem, 5vw, 2.25rem) clamp(3rem, 8vw, 5rem);
   position: relative;
   z-index: 1;
 }
 
 /* ── BOTANICALS ── */
-.botanical-top    { text-align: center; margin-bottom: 6px;  opacity: 0.45; }
-.botanical-bottom { text-align: center; margin-top:   6px;  opacity: 0.45; }
+.botanical-top    { text-align: center; margin-bottom: 10px; opacity: 0.58; }
+.botanical-bottom { text-align: center; margin-top:   14px; opacity: 0.58; }
 .botanical-top  svg { width: 200px; height: auto; }
 .botanical-bottom svg { width: 140px; height: auto; }
 
 /* ── HEADER ── */
 .header {
   text-align: center;
-  padding-bottom: 28px;
-  border-bottom: 1px solid #c9b49a;
+  padding-bottom: clamp(1.5rem, 5vw, 1.85rem);
+  border-bottom: 1px solid var(--rule);
 }
 .studio-tag {
-  font-size: 11px;
-  letter-spacing: 4px;
+  font-size: clamp(10px, 2.8vw, 11px);
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #8a6e56;
-  margin-bottom: 12px;
-  line-height: 1.7;
+  color: var(--gold-bright);
+  margin-bottom: 14px;
+  line-height: 1.65;
+  font-weight: 500;
 }
 .brand {
   font-family: 'Sacramento', cursive;
-  font-size: 68px;
-  color: #3b2f23;
+  font-size: clamp(3.25rem, 12vw, 4.25rem);
+  color: var(--ink);
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .tagline-header {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 15px;
-  color: #8a6e56;
-  margin-bottom: 16px;
+  font-size: clamp(15px, 3.8vw, 17px);
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  line-height: 1.45;
 }
 .divider-leaf {
   display: flex;
@@ -85,217 +102,250 @@ body::before {
   gap: 10px;
   margin: 12px 0;
 }
-.divider-leaf .line   { flex: 1; max-width: 70px; height: 1px; background: linear-gradient(to right, transparent, #c9b49a); }
-.divider-leaf .line.r { background: linear-gradient(to left,  transparent, #c9b49a); }
+.divider-leaf .line   { flex: 1; max-width: 70px; height: 1px; background: linear-gradient(to right, transparent, var(--rule)); }
+.divider-leaf .line.r { background: linear-gradient(to left,  transparent, var(--rule)); }
 .therapist-name {
   font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  font-weight: 500;
-  color: #3b2f23;
-  margin-bottom: 3px;
+  font-size: clamp(18px, 4.2vw, 21px);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
 }
 .therapist-title {
-  font-size: 12px;
-  letter-spacing: 2.5px;
+  font-size: clamp(11px, 3vw, 12px);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8a6e56;
-  line-height: 1.7;
+  color: var(--gold-bright);
+  line-height: 1.65;
+  font-weight: 500;
 }
 
 /* ── INVITE ── */
 .invite {
   text-align: center;
-  padding: 24px 12px;
-  border-bottom: 1px solid #c9b49a;
+  padding: clamp(1.35rem, 5vw, 1.65rem) clamp(0.75rem, 3vw, 1rem);
+  border-bottom: 1px solid var(--rule);
 }
 .invite p {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 18px;
-  line-height: 1.9;
-  color: #5c4433;
+  font-size: clamp(17px, 4.5vw, 20px);
+  line-height: 1.75;
+  color: var(--ink);
+  opacity: 0.92;
 }
 
 /* ── HOW IT WORKS ── */
 .how {
-  padding: 24px 0;
-  border-bottom: 1px solid #c9b49a;
+  padding: clamp(1.35rem, 4vw, 1.75rem) 0;
+  border-bottom: 1px solid var(--rule);
   text-align: center;
 }
 .section-eyebrow {
   display: block;
-  font-size: 11px;
-  letter-spacing: 5px;
+  font-size: clamp(10px, 2.8vw, 11px);
+  letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: #8a6e56;
-  margin-bottom: 18px;
+  color: var(--gold-bright);
+  margin-bottom: 20px;
+  font-weight: 500;
 }
-/* mobile: stacked */
-.steps { display: flex; flex-direction: column; gap: 0; text-align: left; }
-.step  { display: flex; align-items: center; gap: 16px; padding: 12px 0; }
-.step + .step { border-top: 1px solid #ecdfd0; }
+/* mobile: comfortable stacked cards */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--rule-soft);
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+}
 .step-num {
   font-family: 'Sacramento', cursive;
-  font-size: 44px;
-  color: #b08c6e;
+  font-size: clamp(38px, 10vw, 46px);
+  color: var(--gold);
   line-height: 1;
-  width: 36px;
+  width: 44px;
   flex-shrink: 0;
   text-align: center;
 }
-.step p { font-size: 15px; color: #5c4433; line-height: 1.5; }
+.step p {
+  font-size: clamp(15px, 3.8vw, 16px);
+  color: var(--ink);
+  line-height: 1.45;
+  font-weight: 500;
+}
 
 /* ── GENERIC SECTION ── */
-.section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
+.section { padding: clamp(1.35rem, 4vw, 1.75rem) 0; border-bottom: 1px solid var(--rule); }
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: #3b2f23;
-  margin-bottom: 18px;
+  font-size: clamp(1.25rem, 4vw, 1.45rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: clamp(14px, 4vw, 20px);
+  letter-spacing: 0.02em;
 }
 
 /* ── THERAPIES — mobile: stacked ── */
 .therapies { display: flex; flex-direction: column; gap: 0; }
 .therapy { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; }
-.therapy + .therapy { border-top: 1px solid #ecdfd0; }
-.therapy-dot { width: 6px; height: 6px; border-radius: 50%; background: #b08c6e; flex-shrink: 0; margin-top: 7px; }
-.therapy-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #3b2f23; margin-bottom: 2px; }
-.therapy-desc { font-size: 14px; color: #7a6050; font-style: italic; }
+.therapy + .therapy { border-top: 1px solid rgba(196, 183, 142, 0.45); }
+.therapy-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-bright); flex-shrink: 0; margin-top: 7px; }
+.therapy-name { font-family: 'Playfair Display', serif; font-size: clamp(16px, 3.8vw, 18px); font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.therapy-desc { font-size: clamp(13px, 3.4vw, 14px); color: var(--ink-soft); font-style: italic; }
 
 /* ── ENHANCEMENTS ── */
 .enhancements-wrap {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 8px;
-  padding-bottom: 8px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 .enhancements-wrap::-webkit-scrollbar { display: none; }
 .pill {
-  font-size: 14px;
-  color: #5c4433;
-  background: rgba(176,140,110,0.1);
-  border: 1px solid rgba(176,140,110,0.35);
-  border-radius: 100px;
-  padding: 9px 18px;
-  line-height: 1;
-  white-space: nowrap;
-  flex-shrink: 0;
+  font-size: clamp(13px, 3.2vw, 14px);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 12px 12px;
+  line-height: 1.3;
+  white-space: normal;
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
 /* ── EXPERIENCES — mobile: stacked ── */
 .experiences { display: flex; flex-direction: column; gap: 12px; }
 .exp {
-  padding: 16px 18px;
-  background: rgba(255,255,255,0.5);
-  border: 1px solid #d9c9b5;
-  border-radius: 6px;
-  border-left: 3px solid #b08c6e;
+  padding: 18px 18px 18px 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  border-left: 4px solid var(--gold-bright);
+  box-shadow: 0 2px 12px rgba(60, 48, 36, 0.06);
 }
-.exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-.exp-name     { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #3b2f23; }
-.exp-duration { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8a6e56; }
-.exp-details  { font-size: 14px; color: #7a6050; line-height: 1.75; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.exp-name     { font-family: 'Playfair Display', serif; font-size: clamp(16px, 3.8vw, 18px); font-weight: 600; color: var(--ink); }
+.exp-duration { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); font-weight: 500; flex-shrink: 0; }
+.exp-details  { font-size: clamp(13px, 3.3vw, 14px); color: var(--ink-soft); line-height: 1.65; }
 
-/* ── PRICING — mobile: row (works on small screens fine) ── */
-.pricing-section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
-.pricing-tiers { display: flex; gap: 10px; margin-bottom: 16px; }
+/* ── PRICING — one row × three columns (all breakpoints) ── */
+.pricing-section { padding: clamp(1.35rem, 4vw, 1.75rem) 0; border-bottom: 1px solid var(--rule); }
+.pricing-tiers {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(6px, 2.2vw, 12px);
+  margin-bottom: 18px;
+}
 .tier {
   flex: 1;
+  min-width: 0;
   text-align: center;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid #d9c9b5;
-  border-radius: 6px;
-  padding: 16px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: clamp(12px, 3.2vw, 18px) clamp(4px, 1.8vw, 14px);
+  box-shadow: 0 2px 10px rgba(60, 48, 36, 0.05);
 }
-.tier-min   { display: block; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 8px; }
-.tier-price { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: #3b2f23; }
-.tier-price sup { font-size: 14px; vertical-align: super; color: #8a6e56; }
-.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: #8a6e56; line-height: 2; }
+.tier-min {
+  display: block;
+  font-size: clamp(9px, 2.6vw, 11px);
+  letter-spacing: clamp(0.06em, 0.5vw, 0.22em);
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: clamp(6px, 2vw, 10px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.tier-price {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 7.5vw, 2.1rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+.tier-price sup { font-size: 0.48em; vertical-align: super; color: var(--gold); font-weight: 600; }
+.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(14px, 3.5vw, 16px); color: var(--ink-soft); line-height: 1.75; }
 
 /* ── BOOKING ── */
-.booking { text-align: center; padding: 24px 0; border-bottom: 1px solid #c9b49a; }
-.booking-cta { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 10px; }
+.booking { text-align: center; padding: clamp(1.35rem, 4vw, 1.75rem) 0; border-bottom: 1px solid var(--rule); }
+.booking-cta { font-size: 11px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 12px; font-weight: 500; }
 .booking-phone {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  color: #3b2f23;
-  margin-bottom: 6px;
+  font-size: clamp(1.65rem, 8vw, 2rem);
+  color: var(--ink);
+  margin-bottom: 8px;
   display: block;
   text-decoration: none;
-  padding: 4px 0;
+  padding: 8px 0;
+  font-weight: 600;
 }
-.booking-phone:active { opacity: 0.7; }
-.booking-location { font-size: 13px; letter-spacing: 2px; color: #8a6e56; text-transform: uppercase; }
-
-/* ── QR ── */
-.qr-section { text-align: center; padding: 28px 0 0; }
-.qr-label { display: block; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 14px; }
-#qrcode { display: inline-block; padding: 12px; background: #fff; border: 1px solid #d9c9b5; border-radius: 6px; }
-#qrcode canvas, #qrcode img { display: block; }
-.qr-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: #a08070; margin-top: 10px; }
+.booking-phone:active { opacity: 0.75; }
+.booking-location { font-size: 12px; letter-spacing: 0.16em; color: var(--ink-soft); text-transform: uppercase; font-weight: 500; }
 
 /* ── ANIMATIONS ── */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 .header  { animation: rise 0.8s 0.05s ease both; }
 .invite  { animation: rise 0.8s 0.12s ease both; }
 .how     { animation: rise 0.8s 0.18s ease both; }
-.section, .pricing-section, .booking, .qr-section { animation: rise 0.8s 0.22s ease both; }
+.section, .pricing-section, .booking { animation: rise 0.8s 0.22s ease both; }
 
 /* ─────────────────────────────────────────
    TABLET (560px+) — start opening up
 ───────────────────────────────────────── */
 @media (min-width: 560px) {
-  .page { padding: 40px 36px 72px; }
-  .brand { font-size: 72px; }
+  .page { padding: 2.5rem 2.25rem 4.5rem; }
   .botanical-top svg  { width: 240px; }
   .botanical-bottom svg { width: 170px; }
 
-  /* How it works: side by side */
-  .steps { flex-direction: row; text-align: center; }
-  .step  { flex-direction: column; align-items: center; padding: 0 20px; }
-  .step + .step { border-top: none; border-left: 1px solid #d9c9b5; }
+  /* How it works: row of three */
+  .steps { flex-direction: row; gap: 14px; text-align: center; }
+  .step  { flex: 1; flex-direction: column; align-items: center; padding: 20px 16px; }
   .step-num { width: auto; }
 
   /* Therapies: row layout */
   .therapies { flex-direction: row; gap: 0; }
   .therapy { flex-direction: column; flex: 1; padding: 0 16px 0 0; gap: 6px; }
-  .therapy + .therapy { border-top: none; border-left: 1px solid #ecdfd0; padding: 0 0 0 16px; }
+  .therapy + .therapy { border-top: none; border-left: 1px solid var(--rule-soft); padding: 0 0 0 16px; }
   .therapy-dot { margin-top: 0; margin-bottom: 4px; }
 
-  /* Enhancements: wrap on tablet+ */
-  .enhancements-wrap { flex-wrap: wrap; overflow-x: visible; }
-  .pill { flex-shrink: 1; white-space: normal; }
+  /* Enhancements: auto-fit grid */
+  .enhancements-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  }
 
   /* Experiences: 2-col grid */
-  .experiences { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .tier-price { font-size: 30px; }
+  .experiences { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 }
 
 /* ─────────────────────────────────────────
    DESKTOP (700px+) — full luxury layout
 ───────────────────────────────────────── */
 @media (min-width: 700px) {
-  .page { padding: 52px 60px 88px; }
-  .brand { font-size: 80px; }
-  .studio-tag { font-size: 10px; letter-spacing: 5px; }
-  .therapist-name { font-size: 19px; }
-  .therapist-title { font-size: 11px; letter-spacing: 3px; }
-  .tagline-header { font-size: 14px; }
-  .invite p { font-size: 18px; }
-  .section-title { font-size: 22px; }
+  .page { padding: 3.25rem 3.75rem 5.5rem; }
+  .studio-tag { letter-spacing: 0.32em; }
+  .therapist-name { font-size: 21px; }
+  .therapist-title { letter-spacing: 0.24em; }
   .botanical-top svg  { width: 280px; }
   .botanical-bottom svg { width: 190px; }
   .divider-leaf .line { max-width: 90px; }
-  .tier-price { font-size: 32px; }
+  .tier-price { font-size: 2.15rem; }
   .tier-min   { font-size: 10px; }
-  .booking-phone { font-size: 32px; }
-  .exp-name { font-size: 17px; }
-  .therapy-name { font-size: 17px; }
+  .booking-phone { font-size: 2.05rem; }
 }
 
 </style>
@@ -306,26 +356,26 @@ body::before {
   <!-- Botanical top -->
   <div class="botanical-top">
     <svg viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 50 Q42 30 82 34" stroke="#8a6e56" stroke-width="1" fill="none"/>
-      <path d="M24 44 Q30 28 40 25" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="42" cy="23" rx="7" ry="3.5" transform="rotate(-28 42 23)" fill="#8a6e56" opacity="0.4"/>
-      <path d="M52 39 Q57 24 65 21" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="67" cy="19" rx="6.5" ry="3.5" transform="rotate(-18 67 19)" fill="#8a6e56" opacity="0.4"/>
-      <path d="M70 37 Q76 25 83 27" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="84" cy="25" rx="6" ry="3" transform="rotate(8 84 25)" fill="#8a6e56" opacity="0.35"/>
+      <path d="M4 50 Q42 30 82 34" stroke="var(--gold)" stroke-width="1" fill="none"/>
+      <path d="M24 44 Q30 28 40 25" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="42" cy="23" rx="7" ry="3.5" transform="rotate(-28 42 23)" fill="var(--gold)" opacity="0.4"/>
+      <path d="M52 39 Q57 24 65 21" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="67" cy="19" rx="6.5" ry="3.5" transform="rotate(-18 67 19)" fill="var(--gold)" opacity="0.4"/>
+      <path d="M70 37 Q76 25 83 27" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="84" cy="25" rx="6" ry="3" transform="rotate(8 84 25)" fill="var(--gold)" opacity="0.35"/>
       <!-- centre sprig -->
-      <line x1="140" y1="56" x2="140" y2="16" stroke="#8a6e56" stroke-width="0.8"/>
-      <ellipse cx="140" cy="11" rx="5" ry="8" fill="#8a6e56" opacity="0.28"/>
-      <ellipse cx="132" cy="26" rx="5" ry="3" transform="rotate(-38 132 26)" fill="#8a6e56" opacity="0.22"/>
-      <ellipse cx="148" cy="26" rx="5" ry="3" transform="rotate(38 148 26)" fill="#8a6e56" opacity="0.22"/>
+      <line x1="140" y1="56" x2="140" y2="16" stroke="var(--gold)" stroke-width="0.8"/>
+      <ellipse cx="140" cy="11" rx="5" ry="8" fill="var(--gold)" opacity="0.28"/>
+      <ellipse cx="132" cy="26" rx="5" ry="3" transform="rotate(-38 132 26)" fill="var(--gold)" opacity="0.22"/>
+      <ellipse cx="148" cy="26" rx="5" ry="3" transform="rotate(38 148 26)" fill="var(--gold)" opacity="0.22"/>
       <!-- right branch -->
-      <path d="M276 50 Q238 30 198 34" stroke="#8a6e56" stroke-width="1" fill="none"/>
-      <path d="M256 44 Q250 28 240 25" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="238" cy="23" rx="7" ry="3.5" transform="rotate(28 238 23)" fill="#8a6e56" opacity="0.4"/>
-      <path d="M228 39 Q223 24 215 21" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="213" cy="19" rx="6.5" ry="3.5" transform="rotate(18 213 19)" fill="#8a6e56" opacity="0.4"/>
-      <path d="M210 37 Q204 25 197 27" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="196" cy="25" rx="6" ry="3" transform="rotate(-8 196 25)" fill="#8a6e56" opacity="0.35"/>
+      <path d="M276 50 Q238 30 198 34" stroke="var(--gold)" stroke-width="1" fill="none"/>
+      <path d="M256 44 Q250 28 240 25" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="238" cy="23" rx="7" ry="3.5" transform="rotate(28 238 23)" fill="var(--gold)" opacity="0.4"/>
+      <path d="M228 39 Q223 24 215 21" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="213" cy="19" rx="6.5" ry="3.5" transform="rotate(18 213 19)" fill="var(--gold)" opacity="0.4"/>
+      <path d="M210 37 Q204 25 197 27" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="196" cy="25" rx="6" ry="3" transform="rotate(-8 196 25)" fill="var(--gold)" opacity="0.35"/>
     </svg>
   </div>
 
@@ -337,8 +387,8 @@ body::before {
     <div class="divider-leaf">
       <div class="line"></div>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <ellipse cx="8" cy="8" rx="3.5" ry="7" transform="rotate(-45 8 8)" fill="#8a6e56" opacity="0.55"/>
-        <line x1="8" y1="12" x2="8" y2="16" stroke="#8a6e56" stroke-width="0.8" opacity="0.55"/>
+        <ellipse cx="8" cy="8" rx="3.5" ry="7" transform="rotate(-45 8 8)" fill="var(--gold)" opacity="0.55"/>
+        <line x1="8" y1="12" x2="8" y2="16" stroke="var(--gold)" stroke-width="0.8" opacity="0.55"/>
       </svg>
       <div class="line r"></div>
     </div>
@@ -357,7 +407,7 @@ body::before {
     <div class="steps">
       <div class="step"><span class="step-num">1</span><p>Choose your therapy</p></div>
       <div class="step"><span class="step-num">2</span><p>Enhance your experience</p></div>
-      <div class="step"><span class="step-num">3</span><p>Every session is uniquely yours</p></div>
+      <div class="step"><span class="step-num">3</span><p>Each session is thoughtfully customized to your needs</p></div>
     </div>
   </div>
 
@@ -391,7 +441,7 @@ body::before {
 
   <!-- Enhancements -->
   <div class="section">
-    <div class="section-title">Add Your Enhancements</div>
+    <div class="section-title">Choose Your Enhancements</div>
     <div class="enhancements-wrap">
       <span class="pill">Warm Stone Therapy</span>
       <span class="pill">Lymphatic Drainage</span>
@@ -452,35 +502,17 @@ body::before {
     <div class="booking-location">Loxahatchee, Florida</div>
   </div>
 
-  <!-- QR -->
-  <div class="qr-section">
-    <span class="qr-label">Scan to View This Menu</span>
-    <div id="qrcode"></div>
-    <div class="qr-sub">well &amp; being · home studio</div>
-  </div>
-
   <!-- Botanical bottom -->
   <div class="botanical-bottom">
     <svg viewBox="0 0 190 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 12 Q50 22 95 16 Q140 22 182 12" stroke="#8a6e56" stroke-width="0.8" fill="none"/>
-      <ellipse cx="62"  cy="8"  rx="6"   ry="3"   transform="rotate(-18 62 8)"   fill="#8a6e56" opacity="0.28"/>
-      <ellipse cx="95"  cy="5"  rx="4.5" ry="7.5"                                fill="#8a6e56" opacity="0.22"/>
-      <ellipse cx="128" cy="8"  rx="6"   ry="3"   transform="rotate(18 128 8)"   fill="#8a6e56" opacity="0.28"/>
+      <path d="M8 12 Q50 22 95 16 Q140 22 182 12" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+      <ellipse cx="62"  cy="8"  rx="6"   ry="3"   transform="rotate(-18 62 8)"   fill="var(--gold)" opacity="0.28"/>
+      <ellipse cx="95"  cy="5"  rx="4.5" ry="7.5"                                fill="var(--gold)" opacity="0.22"/>
+      <ellipse cx="128" cy="8"  rx="6"   ry="3"   transform="rotate(18 128 8)"   fill="var(--gold)" opacity="0.28"/>
     </svg>
   </div>
 
 </div>
 
-<script>
-  const menuUrl = window.location.href || "https://well-and-being-studio.com/menu";
-  new QRCode(document.getElementById("qrcode"), {
-    text: menuUrl,
-    width: 120,
-    height: 120,
-    colorDark:  "#3b2f23",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
-</script>
 </body>
 </html>
