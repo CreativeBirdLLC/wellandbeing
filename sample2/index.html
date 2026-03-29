@@ -115,17 +115,27 @@
 
     .brand {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(2.35rem, 9.5vw + 0.35rem, 3.35rem);
+      font-size: clamp(
+        1.55rem,
+        calc((100vw - 3rem) / 7.75),
+        2.65rem
+      );
       font-weight: 400;
       line-height: 1.12;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--ink);
+      white-space: nowrap;
     }
 
     @media (min-width: 480px) {
       .brand {
-        letter-spacing: 0.17em;
+        letter-spacing: 0.12em;
+        font-size: clamp(
+          1.85rem,
+          calc((100vw - 3rem) / 7.25),
+          2.85rem
+        );
       }
     }
 
@@ -267,9 +277,9 @@
     }
 
     h2 {
-      font-size: 0.78125rem;
+      font-size: 0.875rem;
       font-weight: 600;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.15rem;
@@ -277,8 +287,8 @@
 
     @media (min-width: 480px) {
       h2 {
-        font-size: 1rem;
-        letter-spacing: 0.24em;
+        font-size: 0.90625rem;
+        letter-spacing: 0.22em;
       }
     }
 
@@ -289,8 +299,8 @@
       }
 
       h2 {
-        font-size: 1rem;
-        letter-spacing: 0.26em;
+        font-size: 0.9375rem;
+        letter-spacing: 0.24em;
         margin-bottom: 1.35rem;
         text-align: center;
       }
