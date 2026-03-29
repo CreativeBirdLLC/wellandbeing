@@ -57,7 +57,7 @@ body::before {
   border-bottom: 1px solid #c9b49a;
 }
 .studio-tag {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: #8a6e56;
@@ -66,7 +66,7 @@ body::before {
 }
 .brand {
   font-family: 'Sacramento', cursive;
-  font-size: 62px;
+  font-size: 68px;
   color: #3b2f23;
   line-height: 1;
   margin-bottom: 8px;
@@ -74,7 +74,7 @@ body::before {
 .tagline-header {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 13px;
+  font-size: 15px;
   color: #8a6e56;
   margin-bottom: 16px;
 }
@@ -89,13 +89,13 @@ body::before {
 .divider-leaf .line.r { background: linear-gradient(to left,  transparent, #c9b49a); }
 .therapist-name {
   font-family: 'Playfair Display', serif;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 500;
   color: #3b2f23;
   margin-bottom: 3px;
 }
 .therapist-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #8a6e56;
@@ -111,7 +111,7 @@ body::before {
 .invite p {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.9;
   color: #5c4433;
 }
@@ -124,7 +124,7 @@ body::before {
 }
 .section-eyebrow {
   display: block;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #8a6e56;
@@ -136,20 +136,20 @@ body::before {
 .step + .step { border-top: 1px solid #ecdfd0; }
 .step-num {
   font-family: 'Sacramento', cursive;
-  font-size: 40px;
+  font-size: 44px;
   color: #b08c6e;
   line-height: 1;
   width: 36px;
   flex-shrink: 0;
   text-align: center;
 }
-.step p { font-size: 13px; color: #5c4433; line-height: 1.5; }
+.step p { font-size: 15px; color: #5c4433; line-height: 1.5; }
 
 /* ── GENERIC SECTION ── */
 .section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
   color: #3b2f23;
   margin-bottom: 18px;
@@ -160,19 +160,30 @@ body::before {
 .therapy { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; }
 .therapy + .therapy { border-top: 1px solid #ecdfd0; }
 .therapy-dot { width: 6px; height: 6px; border-radius: 50%; background: #b08c6e; flex-shrink: 0; margin-top: 7px; }
-.therapy-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: #3b2f23; margin-bottom: 2px; }
-.therapy-desc { font-size: 13px; color: #7a6050; font-style: italic; }
+.therapy-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #3b2f23; margin-bottom: 2px; }
+.therapy-desc { font-size: 14px; color: #7a6050; font-style: italic; }
 
 /* ── ENHANCEMENTS ── */
-.enhancements-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+.enhancements-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.enhancements-wrap::-webkit-scrollbar { display: none; }
 .pill {
-  font-size: 12px;
+  font-size: 14px;
   color: #5c4433;
   background: rgba(176,140,110,0.1);
   border: 1px solid rgba(176,140,110,0.35);
   border-radius: 100px;
-  padding: 6px 14px;
+  padding: 9px 18px;
   line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ── EXPERIENCES — mobile: stacked ── */
@@ -185,9 +196,9 @@ body::before {
   border-left: 3px solid #b08c6e;
 }
 .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-.exp-name     { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: #3b2f23; }
-.exp-duration { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8a6e56; }
-.exp-details  { font-size: 12.5px; color: #7a6050; line-height: 1.75; }
+.exp-name     { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #3b2f23; }
+.exp-duration { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8a6e56; }
+.exp-details  { font-size: 14px; color: #7a6050; line-height: 1.75; }
 
 /* ── PRICING — mobile: row (works on small screens fine) ── */
 .pricing-section { padding: 24px 0; border-bottom: 1px solid #c9b49a; }
@@ -200,17 +211,17 @@ body::before {
   border-radius: 6px;
   padding: 16px 8px;
 }
-.tier-min   { display: block; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 8px; }
-.tier-price { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: #3b2f23; }
-.tier-price sup { font-size: 13px; vertical-align: super; color: #8a6e56; }
-.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: #8a6e56; line-height: 2; }
+.tier-min   { display: block; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 8px; }
+.tier-price { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: #3b2f23; }
+.tier-price sup { font-size: 14px; vertical-align: super; color: #8a6e56; }
+.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: #8a6e56; line-height: 2; }
 
 /* ── BOOKING ── */
 .booking { text-align: center; padding: 24px 0; border-bottom: 1px solid #c9b49a; }
-.booking-cta { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 10px; }
+.booking-cta { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 10px; }
 .booking-phone {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 32px;
   color: #3b2f23;
   margin-bottom: 6px;
   display: block;
@@ -218,11 +229,11 @@ body::before {
   padding: 4px 0;
 }
 .booking-phone:active { opacity: 0.7; }
-.booking-location { font-size: 11px; letter-spacing: 2px; color: #8a6e56; text-transform: uppercase; }
+.booking-location { font-size: 13px; letter-spacing: 2px; color: #8a6e56; text-transform: uppercase; }
 
 /* ── QR ── */
 .qr-section { text-align: center; padding: 28px 0 0; }
-.qr-label { display: block; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 14px; }
+.qr-label { display: block; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #8a6e56; margin-bottom: 14px; }
 #qrcode { display: inline-block; padding: 12px; background: #fff; border: 1px solid #d9c9b5; border-radius: 6px; }
 #qrcode canvas, #qrcode img { display: block; }
 .qr-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: #a08070; margin-top: 10px; }
@@ -254,6 +265,10 @@ body::before {
   .therapy { flex-direction: column; flex: 1; padding: 0 16px 0 0; gap: 6px; }
   .therapy + .therapy { border-top: none; border-left: 1px solid #ecdfd0; padding: 0 0 0 16px; }
   .therapy-dot { margin-top: 0; margin-bottom: 4px; }
+
+  /* Enhancements: wrap on tablet+ */
+  .enhancements-wrap { flex-wrap: wrap; overflow-x: visible; }
+  .pill { flex-shrink: 1; white-space: normal; }
 
   /* Experiences: 2-col grid */
   .experiences { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
