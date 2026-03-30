@@ -6,7 +6,7 @@
 <title>Well & Being — Home Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@400;500&family=Sacramento&display=swap" rel="stylesheet">
 <style>
 
 :root {
@@ -90,10 +90,11 @@ body::before {
 .tagline-header {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(15px, 3.8vw, 17px);
-  color: var(--ink-soft);
+  font-size: clamp(19px, 4.85vw, 23px);
+  line-height: 1.75;
+  color: var(--ink);
+  opacity: 0.92;
   margin-bottom: 18px;
-  line-height: 1.45;
 }
 .divider-leaf {
   display: flex;
@@ -129,7 +130,7 @@ body::before {
 .invite p {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(17px, 4.5vw, 20px);
+  font-size: clamp(19px, 4.85vw, 23px);
   line-height: 1.75;
   color: var(--ink);
   opacity: 0.92;
@@ -279,11 +280,27 @@ body::before {
   line-height: 1;
 }
 .tier-price sup { font-size: 0.48em; vertical-align: super; color: var(--gold); font-weight: 600; }
-.pricing-note { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(14px, 3.5vw, 16px); color: var(--ink-soft); line-height: 1.75; }
+.pricing-note {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
 
 /* ── BOOKING ── */
 .booking { text-align: center; padding: clamp(1.35rem, 4vw, 1.75rem) 0; border-bottom: 1px solid var(--rule); }
-.booking-cta { font-size: 11px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 12px; font-weight: 500; }
+.booking-cta {
+  font-size: clamp(24px, 6.4vw, 28px);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+}
 .booking-phone {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.65rem, 8vw, 2rem);
@@ -383,7 +400,7 @@ body::before {
   <div class="header">
     <div class="studio-tag">Home Studio · Loxahatchee, FL · Est. 2004</div>
     <div class="brand">Well &amp; Being</div>
-    <div class="tagline-header">A sanctuary crafted for your restoration</div>
+    <div class="tagline-header">Pause. Connect. Restore.</div>
     <div class="divider-leaf">
       <div class="line"></div>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -450,6 +467,7 @@ body::before {
       <span class="pill">Tibetan Bowls</span>
       <span class="pill">Warm Oil Scalp</span>
       <span class="pill">Back Polish</span>
+      <span class="pill">Sole Polish</span>
       <span class="pill">Cupping</span>
       <span class="pill">Herbal Compress</span>
       <span class="pill">Gua Sha</span>
